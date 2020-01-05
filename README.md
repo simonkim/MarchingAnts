@@ -2,7 +2,7 @@
 
 MarchingAnts is a Swift Package allows you to add a `marching ants` effect to a CALayer, or such as `UIView.layer`.
 
-TBD: Demo Screenshot
+![](demo-screen.gif)
 
 If you wish to show `marching ants` effect around a `UILabel` in your View Controller, with property name of `label` 
 1. Add `https://github.com/simonkim/MarchingAnts` as  Swift Package Dependency to your Xcode project. See [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app) 

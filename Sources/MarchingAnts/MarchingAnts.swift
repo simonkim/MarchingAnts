@@ -7,6 +7,10 @@
 
 import UIKit
 
+class MarchingAntsLayer: CALayer {
+    
+}
+
 public struct MarchingAnts {
     let antColor: UIColor
     let strokeColor: UIColor
@@ -23,7 +27,7 @@ public struct MarchingAnts {
     }
     
     public func animatingAnts(path: CGPath) -> CALayer {
-        let layer = CALayer()
+        let layer = MarchingAntsLayer()
         layer.addSublayer(
             CAShapeLayer(strokeWithPath: path, color: strokeColor)
         )

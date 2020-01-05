@@ -30,22 +30,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
     
-    weak var antsLayer: CALayer?
     weak var selectedView: UIView? {
-        didSet {
-            if let antsLayer = antsLayer {
-                antsLayer.removeFromSuperlayer()
-            }
+        didSet(oldValue) {
             
-            guard let selectedView = selectedView else {
-                return
+            if let oldView = oldValue {
+                oldView.layer.isMarchingAntsVisible = false
             }
-
-            let antsLayer = MarchingAnts().boundingAnts(rect: imageView.bounds)
-            selectedView.layer.addSublayer(
-                antsLayer
-            )
-            self.antsLayer = antsLayer
+            if let selectedView = selectedView {
+                selectedView.layer.isMarchingAntsVisible = true
+            }
         }
     }
     
@@ -59,6 +52,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selectedView = imageView
         
         imageView.addGestureRecognizer(tapGesture)
 

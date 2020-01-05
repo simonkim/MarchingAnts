@@ -25,10 +25,13 @@ extension UIImageView {
     }
 }
 
+/// Try tapping `label` or `imageView` to see marching ants as selection state visualization
 class ViewController: UIViewController {
 
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    @IBOutlet var tapImageGesture: UITapGestureRecognizer!
+    @IBOutlet var tapLabelGesture: UITapGestureRecognizer!
     
     weak var selectedView: UIView? {
         didSet(oldValue) {
@@ -53,9 +56,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        selectedView = imageView
-        
-        imageView.addGestureRecognizer(tapGesture)
+        selectedView = label
+
+        label.addGestureRecognizer(tapLabelGesture)
+        imageView.addGestureRecognizer(tapImageGesture)
 
         imageView.fetchRemoteImage(url: placerImageURL) { imageView, image in
             imageView.image = image

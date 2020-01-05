@@ -24,6 +24,14 @@
                                     <constraint firstAttribute="height" constant="140" id="U42-RS-8AU"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap Me!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg4-Rb-kbT">
+                                <rect key="frame" x="67" y="154" width="61" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -34,13 +42,20 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="wAp-gz-Gdv" id="ygZ-Am-UH1"/>
-                        <outlet property="tapGesture" destination="eNC-hQ-N8e" id="CLU-CO-wTs"/>
+                        <outlet property="label" destination="bg4-Rb-kbT" id="HCQ-WN-Uft"/>
+                        <outlet property="tapImageGesture" destination="eNC-hQ-N8e" id="nLh-J2-Nam"/>
+                        <outlet property="tapLabelGesture" destination="hgB-wR-aAh" id="KaP-g0-mno"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="eNC-hQ-N8e">
                     <connections>
                         <action selector="didTap:" destination="BYZ-38-t0r" id="pVi-6m-QHa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hgB-wR-aAh">
+                    <connections>
+                        <action selector="didTap:" destination="BYZ-38-t0r" id="if4-cQ-CUu"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

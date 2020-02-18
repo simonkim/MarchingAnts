@@ -28,12 +28,19 @@ public struct MarchingAnts {
     
     public func animatingAnts(path: CGPath) -> CALayer {
         let layer = MarchingAntsLayer()
-        layer.addSublayer(
-            CAShapeLayer(strokeWithPath: path, color: strokeColor)
-        )
-        layer.addSublayer(
-            CAShapeLayer(antsWithPath: path, color: antColor, lineDashPattern: lineDashPattern)
-        )
+        
+        let pair = antsShapeLayerPair(path: path)
+        layer.addSublayer( pair.strokeLayer )
+        layer.addSublayer( pair.antsLayer )
+        
         return layer
+    }
+    
+    /// Creates pair of shape layer achives marching ants effect together as sublayers of a parent
+    public func antsShapeLayerPair(path: CGPath) -> ShapeLayerPair {
+        return ShapeLayerPair(
+            strokeLayer: CAShapeLayer(strokeWithPath: path, color: strokeColor),
+            antsLayer: CAShapeLayer(antsWithPath: path, color: antColor, lineDashPattern: lineDashPattern)
+        )
     }
 }

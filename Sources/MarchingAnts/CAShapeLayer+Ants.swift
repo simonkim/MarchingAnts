@@ -9,7 +9,7 @@ import UIKit
 
 extension CAShapeLayer {
     
-    convenience init(antsWithPath path: CGPath, color: UIColor = .black, lineDashPattern: [Int] = [6, 8]) {
+    public convenience init(antsWithPath path: CGPath, color: UIColor = .black, lineDashPattern: [Int] = [6, 8]) {
         self.init()
         self.path = path
         self.strokeColor = color.cgColor
@@ -26,7 +26,7 @@ extension CAShapeLayer {
         self.add(animation, forKey: "dash")
     }
     
-    convenience init(strokeWithPath path: CGPath, color: UIColor) {
+    public convenience init(strokeWithPath path: CGPath, color: UIColor) {
         self.init()
         self.path = path
         self.strokeColor = color.cgColor
